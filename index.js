@@ -49,6 +49,11 @@ app.post('/clientes', (req, res) => {
    clientes.push(novoCliente);
    salvarClientes(clientes);
    res.status(201).json({message: 'Cliente cadastrado com sucesso', cliente: novoCliente});
+
+});
+app.get('/clientes', (req, res) => {
+    const clientes = lerClientes();
+    res.status(200).json(clientes);
 });
 
 app.listen(port, () => {
